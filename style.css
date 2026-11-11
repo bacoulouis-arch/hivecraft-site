@@ -1,0 +1,172 @@
+/* Hivecraft's public pages. One stylesheet, one font, both from this folder:
+   nothing here is fetched from another site (scripts/site-check.sh checks it).
+   The colours are the game's own (App/Hivecraft/Assets.xcassets), light and dark. */
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("Fraunces-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light dark;
+  --ground: #F5EAD3;
+  --card: #FFF9EC;
+  --border: #DCC8A4;
+  --ink: #352416;
+  --detail: #756756;
+  --accent: #8C5409;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground: #17110B;
+    --card: #2B2117;
+    --border: #5B4630;
+    --ink: #F5EAD3;
+    --detail: #B1A38F;
+    --accent: #F4AE3D;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font: 1.0625rem/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.page {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 3rem;
+}
+
+header.site {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+header.site .name {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600;
+  font-size: 1.375rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0.5rem 0;      /* a 44-point target on a phone */
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 0.15em;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+h1, h2 {
+  font-family: "Fraunces", Georgia, serif;
+  line-height: 1.2;
+  margin: 0;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 1.375rem;
+  margin-top: 2.25rem;
+  margin-bottom: 0.25rem;
+}
+
+p, ul, ol { margin: 0.75rem 0 0; }
+li { margin-top: 0.4rem; }
+
+.lede {
+  font-size: 1.1875rem;
+  margin-top: 1rem;
+}
+
+.updated, footer.site {
+  color: var(--detail);
+  font-size: 0.9375rem;
+}
+
+.updated { margin-top: 0.5rem; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 0.25rem 1.1rem 1.1rem;
+  margin-top: 1.5rem;
+}
+
+.card h2 { margin-top: 1rem; }
+
+.pages {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+}
+
+.pages li { margin-top: 0.75rem; }
+
+.pages a {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+
+.pages span { display: block; color: var(--detail); font-size: 0.9375rem; }
+
+footer.site {
+  margin-top: 3rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+
+footer.site p { margin-top: 0.4rem; }
+
+@media (min-width: 48rem) {
+  .page { padding-top: 2rem; }
+  h1 { font-size: 2.5rem; }
+}
+
+@media (max-width: 22rem) {
+  h1 { font-size: 1.75rem; }
+}
